@@ -1,0 +1,29 @@
+.apply-box{
+  display: block;
+}
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.file-input{
+  display: none;
+}
+.upload-stuff {
+  display: flex;
+}
+.mat-radio-group {
+  margin-top: 10px;
+}
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+
+.mat-form-field {
+  width: 85%;
+}
+.submit-cv-button{
+  background-color: #77CBDA;
+  color: white;
+}
+

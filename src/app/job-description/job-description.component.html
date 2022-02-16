@@ -1,0 +1,499 @@
+<h1 mat-dialog-title><b>Job Details</b></h1>
+<mat-divider></mat-divider>
+<br>
+<div mat-dialog-content>
+  <h2>{{data.jobTitle}}</h2>
+  <p>{{data.description}}</p>
+  <br>
+  <h3><b>Description</b></h3>
+  <ul>
+    <li><b>Employer: </b>{{data.employer}}</li>
+    <li><b>Duration: </b>{{data.duration}}</li>
+    <li><b>Format: </b>{{data.format}}</li>
+    <li><b>Working Hours: </b>{{data.wHours}}</li>
+    <li *ngIf="data.renumeration != 'N/A'"><b>Remuneration: </b>{{data.renumeration}}</li>
+    <li><b>Application Deadline: </b>{{data.appDeadline}}</li>
+  </ul>
+  <br>
+  <div class="tasks-box" *ngIf="data.tasks != ''">
+    <h3><b>Tasks</b></h3>
+    <ul *ngFor="let task of data.tasks">
+      <li>{{task}}</li>
+    </ul>
+  </div>
+  <br>
+  <h3><b>Qualifications</b></h3>
+  <ul  *ngFor = "let skill of data.qualifications">
+    <li>{{skill}}</li>
+  </ul>
+  <br>
+<div class="what-we-offer" *ngIf="data.jobTitle!='Marketing Manager'">
+  <h3><b>What we Offer</b></h3>
+  <ul *ngFor="let offering of offerings">
+    <li>{{offering}}</li>
+  </ul>
+</div>
+
+  <h3><b>About ABI</b></h3>
+  <p>The Armenian Bioinformatics Institute (ABI) is a recently established scientific-educational foundation aimed at promoting data-driven studies in biomedicine and biotechnologies with international impact. ABI is envisioned as an interdisciplinary and cross-sectoral R&D center aimed at building bioinformatics expertise and infrastructure. ABI focuses on three challenge areas: genomics for health, biotechnology, and ecosystem management. </p>
+  <br>
+  <div class="about-agenus" *ngIf="data.listingTitle=='Systems Biology of Tumor Metastases'">
+    <h3><b>About Agenus</b></h3>
+    <p>Agenus is a clinical-stage immuno-oncology company focused on the discovery and development of therapies that engage the body's immune system to fight cancer. The Company's vision is to expand the patient populations benefiting from cancer immunotherapy by pursuing combination approaches that leverage a broad repertoire of antibody therapeutics, adoptive cell therapies (through its subsidiary MiNK Therapeutics), adjuvants, and proprietary cancer vaccine platforms. The Company is equipped with a suite of antibody discovery platforms and a state-of-the-art GMP manufacturing facility with the capacity to support clinical programs. Agenus is headquartered in Lexington, MA.</p>
+  </div>
+
+  <mat-divider></mat-divider>
+
+
+
+
+
+
+  <br>
+  <h2>Apply</h2>
+  <br>
+  <div class="apply-box">
+<div class="question-set-1" *ngIf="data.listingTitle== 'Quality assurance pipeline development and automation for gene therapy applications'">
+  <form [formGroup]="embleemaForm">
+
+
+  <mat-form-field>
+    <mat-label>Your Name</mat-label>
+    <input matInput type="text" formControlName = "inputName" required [formControl]="inputName">
+  </mat-form-field>
+  <br>
+
+  <mat-form-field>
+    <mat-label>Your Email</mat-label>
+    <input type="text" matInput formControlName = "inputEmail" [formControl] = "inputEmail" required>
+    <mat-icon matSuffix>email</mat-icon>
+    <mat-error *ngIf="inputEmail.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Your Phone Number</mat-label>
+    <input type="text" matInput formControlName = "inputPhone" required [formControl]="inputPhone">
+    <mat-icon matSuffix>phone</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Your current affiliation (organization, position, and/or university)</mat-label>
+    <input type="text" matInput formControlName = "affiliation" required [formControl]="affiliation">
+  </mat-form-field>
+
+  <p>On a scale of 1-5, how would you rate your English proficiency?</p>
+  <mat-form-field>
+    <mat-select required [(ngModel)]="englishProf" [ngModelOptions]="{standalone: true}">
+      <mat-option value="1">1: beginner</mat-option>
+      <mat-option value="2">2: good</mat-option>
+      <mat-option value="3">3: very good</mat-option>
+      <mat-option value="4">4: excellent</mat-option>
+      <mat-option value="5">5: advanced</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <p>If applicable: On a scale of 1-5, how would you rate your programming skills?</p>
+  <mat-form-field>
+    <mat-select  required [(ngModel)]="progSkills" [ngModelOptions]="{standalone: true}">
+      <mat-option value="1">1: beginner</mat-option>
+      <mat-option value="2">2: good</mat-option>
+      <mat-option value="3">3: very good</mat-option>
+      <mat-option value="4">4: excellent</mat-option>
+      <mat-option value="5">5: advanced</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <p>If applicable: Please list the programming languages you know.</p>
+  <mat-form-field>
+    <mat-label>Your Answer</mat-label>
+    <textarea matInput formControlName = "progLanguages" [formControl]="progLanguages"></textarea>
+  </mat-form-field>
+
+  <p>On a scale of 1-5, how would you rate your knowledge in Molecular Biology?</p>
+  <mat-form-field>
+    <mat-select  required [(ngModel)]="molBio" [ngModelOptions]="{standalone: true}">
+      <mat-option value="1">1: beginner</mat-option>
+      <mat-option value="2">2: good</mat-option>
+      <mat-option value="3">3: very good</mat-option>
+      <mat-option value="4">4: excellent</mat-option>
+      <mat-option value="5">5: advanced</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <p>On a scale of 1-5, how would you rate your skills of reading and comprehending scientific literature?</p>
+  <mat-form-field>
+    <mat-select required [(ngModel)]="sciLiterature" [ngModelOptions]="{standalone: true}">
+      <mat-option value="1">1: beginner</mat-option>
+      <mat-option value="2">2: good</mat-option>
+      <mat-option value="3">3: very good</mat-option>
+      <mat-option value="4">4: excellent</mat-option>
+      <mat-option value="5">5: advanced</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <p>On a scale of 1-5, how would you rate your skills in Data Science?</p>
+  <mat-form-field>
+    <mat-select  required [(ngModel)]="dataScience" [ngModelOptions]="{standalone: true}">
+      <mat-option value="1">1: beginner</mat-option>
+      <mat-option value="2">2: good</mat-option>
+      <mat-option value="3">3: very good</mat-option>
+      <mat-option value="4">4: excellent</mat-option>
+      <mat-option value="5">5: advanced</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <p>On a scale of 1-5, how would you rate your skills of reporting scientific findings?</p>
+  <mat-form-field>
+    <mat-select required [(ngModel)]="reporting" [ngModelOptions]="{standalone: true}">
+      <mat-option value="1">1: beginner</mat-option>
+      <mat-option value="2">2: good</mat-option>
+      <mat-option value="3">3: very good</mat-option>
+      <mat-option value="4">4: excellent</mat-option>
+      <mat-option value="5">5: advanced</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <p>Describe your professional background and how it relates to the current position.</p>
+  <mat-form-field>
+    <mat-label>Your Answer</mat-label>
+    <textarea matInput formControlName = "profBg" minlength="50" maxlength="500" required #bg [formControl]="profBg"></textarea>
+    <mat-hint align="end">{{bg.value?.length || 0}}/500</mat-hint>
+    <mat-error *ngIf="bg.value.length < 50">Your response is too short (required minimum 50 characters)</mat-error>
+  </mat-form-field>
+
+  <p>What are your professional short and long term plans? </p>
+  <mat-form-field>
+    <mat-label>Your Answer</mat-label>
+    <textarea matInput formControlName = "plans" [formControl]="plans" minlength="250" maxlength="1000" #longgoals> required</textarea>
+    <mat-hint align="end">{{longgoals.value?.length || 0}}/1000</mat-hint>
+    <mat-error *ngIf="longgoals.value.length < 250">Your response is too short (required minimum 250 characters)</mat-error>
+  </mat-form-field>
+
+  <p>What is your motivation to apply for this position?</p>
+  <mat-form-field>
+    <mat-label>Your Answer</mat-label>
+    <textarea matInput formControlName = "motivation" minlength="250" maxlength="1000" #mot [formControl]="motivation"></textarea>
+    <mat-hint align="end">{{mot.value?.length || 0}}/1000</mat-hint>
+    <mat-error *ngIf="mot.value.length < 250">Your response is too short (required minimum 250 characters)</mat-error>
+  </mat-form-field>
+
+  <!--******-->
+  <p>Please upload the current version of your resumé (CV)</p>
+
+  <input type="file" class="file-input" #hiddenUpload (change)="selectFile($event)"/>
+  <div class="upload-stuff">
+    <button mat-raised-button (click)="hiddenUpload.click()" class="submit-cv-button">
+      Upload CV
+    </button>
+    <p style="margin-left: 10px; margin-top: 5px;">{{uploadFileName}}</p>
+  </div>
+  <br>
+  <label> Would you like to be contacted by ABI in the future?</label>
+  <br>
+  <br>
+  <mat-radio-group formControlName = "futureContact" [formControl]="futureContact">
+    <mat-radio-button value="Yes">Yes</mat-radio-button>
+    <mat-radio-button value="No">No</mat-radio-button>
+  </mat-radio-group>
+  </form>
+</div>
+  </div>
+
+
+
+  <div class="question-set-2" *ngIf="data.listingTitle=='Systems Biology of Tumor Metastases'">
+
+    <form [formGroup]="agenusForm">
+    <mat-form-field>
+      <mat-label>Your Name</mat-label>
+      <input matInput type="text" [formControl] = "inputName" required formControlName="inputName" name="inputName">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field>
+      <mat-label>Your Email</mat-label>
+      <input type="text" matInput formControlName = "inputEmail" [formControl] = "inputEmail" required name="inputEmail">
+      <mat-icon matSuffix>email</mat-icon>
+      <mat-error *ngIf="inputEmail.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Your Phone Number</mat-label>
+      <input type="text" matInput [formControl] = "inputPhone" required formControlName="inputPhone" name="inputPhone">
+      <mat-icon matSuffix>phone</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Your current affiliation (organization, position, and/or university)</mat-label>
+      <input type="text" matInput [formControl] = "affiliation" required formControlName="affiliation" name="affiliation">
+    </mat-form-field>
+    <p>On a scale of 1-5, how would you rate your English proficiency?</p>
+    <mat-form-field>
+      <mat-select [(ngModel)] = "englishProf" required [ngModelOptions]="{standalone: true}">
+        <mat-option value="1">1: beginner</mat-option>
+        <mat-option value="2">2: good</mat-option>
+        <mat-option value="3">3: very good</mat-option>
+        <mat-option value="4">4: excellent</mat-option>
+        <mat-option value="5">5: advanced</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <p>Describe your educational and professional background and how it relates to this position (400-1000 characters)</p>
+    <mat-form-field>
+      <mat-label>Your Answer</mat-label>
+      <textarea matInput [formControl] = "profBg" minlength="400" maxlength="1000" required #edbg formControlName="profBg" name="profBg"></textarea>
+      <mat-hint align="end">{{edbg.value?.length || 0}}/1000</mat-hint>
+      <mat-error *ngIf="edbg.value.length < 400">Your response is too short (required minimum 400 characters)</mat-error>
+    </mat-form-field>
+
+    <p>What are your short- and long- term career goals? (250-1000 characters)</p>
+    <mat-form-field>
+      <mat-label>Your Answer</mat-label>
+      <textarea matInput [formControl] = "goals" minlength="250" maxlength="1000" required #shortgoals formControlName="goals" name="goals"></textarea>
+      <mat-hint align="end">{{shortgoals.value?.length || 0}}/1000</mat-hint>
+      <mat-error *ngIf="shortgoals.value.length < 250">Your response is too short (required minimum 250 characters)</mat-error>
+    </mat-form-field>
+
+    <p>Why are you interested in the offered position? What are your expectations from the internship? How does it relate to your career goals? (250-1000 characters)</p>
+    <mat-form-field>
+      <mat-label>Your Answer</mat-label>
+      <textarea matInput [formControl] = "expectations" formControlName="expectations" name="expectation" minlength="250" maxlength="1000" required #whypos></textarea>
+      <mat-hint align="end">{{whypos.value?.length || 0}}/1000</mat-hint>
+      <mat-error *ngIf="whypos.value.length < 250">Your response is too short (required minimum 250 characters)</mat-error>
+    </mat-form-field>
+
+
+    <p>Describe a topic in life sciences that is of particular interest to you. Have you ever been engaged in a research project? If yes, what was it about? (250-1000 characters)</p>
+    <mat-form-field>
+      <mat-label>Your Answer</mat-label>
+      <textarea matInput [formControl] = "lifescitopic" formControlName="lifescitopic" name="lifescitopic" minlength="250" maxlength="1000" required #topic></textarea>
+      <mat-hint align="end">{{topic.value?.length || 0}}/1000</mat-hint>
+      <mat-error *ngIf="topic.value.length < 250">Your response is too short (required minimum 250 characters)</mat-error>
+    </mat-form-field>
+
+    <p>Please upload the current version of your resumé (CV)</p>
+
+    <input type="file" class="file-input" #hiddenUpload (change)="selectFile($event)" required/>
+    <div class="upload-stuff">
+      <button mat-raised-button (click)="hiddenUpload.click()" class="submit-cv-button">
+        Upload CV
+      </button>
+      <p style="margin-left: 10px; margin-top: 5px;">{{uploadFileName}}</p>
+    </div>
+    <br>
+    <label> Would you like to be contacted by ABI in the future?</label>
+    <br>
+    <br>
+    <mat-radio-group [formControl] = "futureContact" formControlName="futureContact" name="futureContact">
+      <mat-radio-button value="Yes">Yes</mat-radio-button>
+      <mat-radio-button value="No">No</mat-radio-button>
+    </mat-radio-group>
+    </form>
+  </div>
+
+
+
+
+  <div class="question-set-3" *ngIf="data.listingTitle=='Management of ABI Marketing Campaigns'">
+
+    <form [formGroup] = "marketingForm">
+
+
+
+    <mat-form-field>
+      <mat-label>Your Name</mat-label>
+      <input matInput type="text" formControlName = "inputName" required [formControl] = "inputName" name="inputName">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field>
+      <mat-label>Your Email</mat-label>
+      <input type="text" matInput formControlName = "inputEmail" [formControl] = "inputEmail" required name="inputEmail">
+      <mat-icon matSuffix>email</mat-icon>
+      <mat-error *ngIf="inputEmail.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Your Phone Number</mat-label>
+      <input type="text" matInput formControlName = "inputPhone" required [formControl] = "inputPhone" name="inputPhone">
+      <mat-icon matSuffix>phone</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Your current affiliation (organization, position, and/or university)</mat-label>
+      <input type="text" matInput formControlName = "affiliation" required [formControl] = "affiliation" name="affiliation">
+    </mat-form-field>
+
+    <p>On a scale of 1-5, how would you rate your English proficiency?</p>
+    <mat-form-field>
+      <mat-select [(ngModel)] = "englishProf" required>
+        <mat-option value="1">1: beginner</mat-option>
+        <mat-option value="2">2: good</mat-option>
+        <mat-option value="3">3: very good</mat-option>
+        <mat-option value="4">4: excellent</mat-option>
+        <mat-option value="5">5: advanced</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <p>On a scale of 1-5, how would you rate your Armenian proficiency?</p>
+    <mat-form-field>
+      <mat-select formControlName = "armProf" required [formControl]="armProf" name="armProf">
+        <mat-option value="1">1: beginner</mat-option>
+        <mat-option value="2">2: good</mat-option>
+        <mat-option value="3">3: very good</mat-option>
+        <mat-option value="4">4: excellent</mat-option>
+        <mat-option value="5">5: advanced</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <p>Please indicate your time availability (10 hours/week, 20 hours/week, 30 hours/week, or other)</p>
+      <input type="text" matInput formControlName = "commitment" required [formControl] = "commitment"  ngDefaultControl>
+    </mat-form-field>
+
+    <p>Describe your professional background. How is it relevant to the job, what past experiences make you suited for it? Why have you chosen to apply to the Armenian Bioinformatics Institute? (400-1500 characters)</p>
+    <mat-form-field>
+      <mat-label>Your Answer</mat-label>
+      <textarea matInput formControlName = "profBg" minlength="400" maxlength="1500" #background required [formControl] = "profBg" name="profBg"></textarea>
+      <mat-hint align="end">{{background.value?.length || 0}}/1500</mat-hint>
+      <mat-error *ngIf="background.value.length < 400">Your response is too short (required minimum 400 characters)</mat-error>
+    </mat-form-field>
+
+    <p>What are your short and long-term career plans? (250-1500 characters)</p>
+    <mat-form-field>
+      <mat-label>Your Answer</mat-label>
+      <textarea matInput formControlName = "goals" minlength="250" maxlength="1500" #shortplans required [formControl]="goals" name="goals"></textarea>
+      <mat-hint align="end">{{shortplans.value?.length || 0}}/1500</mat-hint>
+      <mat-error *ngIf="shortplans.value.length < 250">Your response is too short (required minimum 250 characters)</mat-error>
+    </mat-form-field>
+
+    <p>We know you’re not a scientist and don’t need to be one, but we are curious about how your mind works. Tell us how you think science (and genomics/bioinformatics in particular) influences our lives today. (600-2000 characters)</p>
+    <mat-form-field>
+      <mat-label>Your Answer</mat-label>
+      <textarea matInput formControlName = "yourMind" minlength="600" maxlength="2000" #mind required [formControl]="yourMind" name="yourMind"></textarea>
+      <mat-hint align="end">{{mind.value?.length || 0}}/2000</mat-hint>
+      <mat-error *ngIf="mind.value.length < 600">Your response is too short (required minimum 600 characters)</mat-error>
+    </mat-form-field>
+
+    <p>Please upload the current version of your resumé (CV)</p>
+
+    <input type="file" class="file-input" #hiddenUpload (change)="selectFile($event)" required/>
+    <div class="upload-stuff">
+      <button mat-raised-button (click)="hiddenUpload.click()" class="submit-cv-button">
+        Upload CV
+      </button>
+      <p style="margin-left: 10px; margin-top: 5px;">{{uploadFileName}}</p>
+    </div>
+    <br>
+    <label> Would you like to be contacted by ABI in the future?</label>
+    <br>
+    <br>
+    <mat-radio-group formControlName = "futureContact" [formControl]="futureContact">
+      <mat-radio-button value="Yes">Yes</mat-radio-button>
+      <mat-radio-button value="No">No</mat-radio-button>
+    </mat-radio-group>
+    </form>
+  </div>
+  <div class="question-set-4" *ngIf="data.listingTitle == 'Linux System Administration'">
+
+    <form [formGroup]="sysAdminForm">
+
+    <mat-form-field>
+      <mat-label>Your Name</mat-label>
+      <input matInput type="text" [formControl] = "inputName" required formControlName="inputName" name="inputName">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field>
+      <mat-label>Your Email</mat-label>
+      <input type="text" matInput  [formControl] = "inputEmail" required formControlName="inputEmail" name="inputEmail">
+      <mat-icon matSuffix>email</mat-icon>
+      <mat-error *ngIf="inputEmail.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Your Phone Number</mat-label>
+      <input type="text" matInput [formControl)] = "inputPhone" required formControlName="inputPhone" name="inputPhone">
+      <mat-icon matSuffix>phone</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Your current affiliation (organization, position, and/or university)</mat-label>
+      <input type="text" matInput [formControl)] = "affiliation" required formControlName="affiliation" name="affiliation">
+    </mat-form-field>
+
+    <p>Describe your prior experience as a system administrator: what types of systems have you worked with? What user groups have you provided support for? (approximately 300 characters)</p>
+    <mat-form-field>
+      <mat-label>Your Answer</mat-label>
+      <textarea matInput [formControl] = "profBg" minlength="300" required #sysbg formControlName="profBg" name="profBg"></textarea>
+      <mat-hint align="end">{{sysbg.value?.length || 0}}/1500</mat-hint>
+      <mat-error *ngIf="sysbg.value.length < 300">Your response is too short (required minimum 300 characters)</mat-error>
+    </mat-form-field>
+
+    <p>Have you ever interacted with users and provided instructions on how to efficiently use server resources? (approximately 75 characters)</p>
+    <mat-form-field>
+      <mat-label>Your Answer</mat-label>
+      <textarea matInput [formControl] = "users" minlength="75" required #userInt formControlName="users" name="users"></textarea>
+      <mat-hint align="end">{{userInt.value?.length || 0}}/1500</mat-hint>
+      <mat-error *ngIf="userInt.value.length < 75">Your response is too short (required minimum 75 characters)</mat-error>
+    </mat-form-field>
+
+    <p>What is your motivation to apply for this job?</p>
+    <mat-form-field>
+      <mat-label>Your Answer</mat-label>
+      <textarea matInput [formControl] = "motivation" minlength="400" maxlength="1000" #letterofMot required formControlName="motivation" name="motivation"></textarea>
+      <mat-hint align="end">{{letterofMot.value?.length || 0}}/1000</mat-hint>
+      <mat-error *ngIf="letterofMot.value.length < 400">Your response is too short (required minimum 400 characters)</mat-error>
+    </mat-form-field>
+
+    <p>What are your short and long-term career plans? </p>
+    <mat-form-field>
+      <mat-label>Your Answer</mat-label>
+      <textarea matInput [formControl] = "goals" minlength="400" maxlength="1000" #sysplans required formControlName="goals" name="goals"></textarea>
+      <mat-hint align="end">{{sysplans.value?.length || 0}}/1000</mat-hint>
+      <mat-error *ngIf="sysplans.value.length < 400">Your response is too short (required minimum 400 characters)</mat-error>
+    </mat-form-field>
+
+    <p>Are you willing to learn the peculiarities of bioinformatics software support? </p>
+    <mat-form-field>
+      <mat-label>Your Answer</mat-label>
+      <textarea matInput [formControl] = "will" minlength="200" maxlength="1000" #willingness required formControlName="will" name="will"></textarea>
+      <mat-hint align="end">{{willingness.value?.length || 0}}/1000</mat-hint>
+      <mat-error *ngIf="willingness.value.length < 200">Your response is too short (required minimum 200 characters)</mat-error>
+    </mat-form-field>
+
+    <p>What would you like to learn at the supercomputing centers in Sweden and Germany when given the chance? </p>
+    <mat-form-field>
+      <mat-label>Your Answer</mat-label>
+      <textarea matInput [formControl] = "sweden" minlength="80" maxlength="1000" #swed required formControlName="sweden" name="sweden"></textarea>
+      <mat-hint align="end">{{swed.value?.length || 0}}/1000</mat-hint>
+      <mat-error *ngIf="swed.value.length < 80">Your response is too short (required minimum 80 characters)</mat-error>
+    </mat-form-field>
+    <p>Please upload the current version of your resumé (CV)</p>
+
+    <input type="file" class="file-input" #hiddenUpload (change)="selectFile($event)" required/>
+    <div class="upload-stuff">
+      <button mat-raised-button (click)="hiddenUpload.click()" class="submit-cv-button">
+        Upload CV
+      </button>
+      <p style="margin-left: 10px; margin-top: 5px;">{{uploadFileName}}</p>
+    </div>
+    <br>
+    <label> Would you like to be contacted by ABI in the future?</label>
+    <br>
+    <br>
+    <mat-radio-group [formControl] = "futureContact" formControlName="futureContact" name="futureContact">
+      <mat-radio-button value="Yes">Yes</mat-radio-button>
+      <mat-radio-button value="No">No</mat-radio-button>
+    </mat-radio-group>
+    </form>
+  </div>
+</div>
+
+
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-raised-button  color="primary" [disabled]="!haveFilledOut" [mat-dialog-close]="data.jobTitle" cdkFocusInitial (click)="submitApplication()" class="submit-button">Submit</button>
+
+</div>
