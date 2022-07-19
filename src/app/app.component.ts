@@ -4,7 +4,7 @@ import {OnDestroy} from '@angular/core';
 import {Subject} from 'rxjs';
 import {map, takeUntil} from 'rxjs/operators';
 import {MatDialog} from "@angular/material/dialog";
-import {JobDescriptionComponent} from "./job-description/job-description.component";
+import {JobDescriptionComponent} from "./home/job-description/job-description.component";
 import {AngularFireDatabase} from "@angular/fire/compat/database";
 import {Title} from "@angular/platform-browser";
 import { Meta } from '@angular/platform-browser';

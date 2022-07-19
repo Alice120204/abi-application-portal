@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MaterialModule} from "../material.module";
-import { JobDescriptionComponent } from './job-description/job-description.component';
+import { JobDescriptionComponent } from './home/job-description/job-description.component';
 import { HttpClientModule } from '@angular/common/http';
 import {AngularFireModule} from "@angular/fire/compat";
 import { AngularFireDatabaseModule} from "@angular/fire/compat/database";
@@ -56,28 +56,36 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
+import { HomeComponent } from './home/home.component';
+import {RoutingModule} from "./routing/routing.module";
+import {RouterModule} from "@angular/router";
+import { ApplicationFormComponent } from './application-form/application-form.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     JobDescriptionComponent,
-    ReversePipe
+    ReversePipe,
+    HomeComponent,
+    ApplicationFormComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
+    RouterModule,
+    RoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp({
-      apiKey: "AIzaSyAOah7B4eof8iM216rMw2mLhuZiqtOMNA0",
-      authDomain: "abi-application-portal-6652c.firebaseapp.com",
-      projectId: "abi-application-portal-6652c",
-      storageBucket: "abi-application-portal-6652c.appspot.com",
-      messagingSenderId: "601196775951",
-      appId: "1:601196775951:web:3f84b78549e5c5a216717a",
-      measurementId: "G-C38FV6D1H8"
+      apiKey: "AIzaSyAP4MUlPcQYHhozNcBFcx87QI5MdU2QD90",
+      authDomain: "abi-application-portal-d678a.firebaseapp.com",
+      projectId: "abi-application-portal-d678a",
+      storageBucket: "abi-application-portal-d678a.appspot.com",
+      messagingSenderId: "1024902460995",
+      appId: "1:1024902460995:web:0f1665007750c59eef86f6",
+      measurementId: "G-0N8N3MLD6Z"
     }),
     AngularFireDatabaseModule,
     FormsModule,

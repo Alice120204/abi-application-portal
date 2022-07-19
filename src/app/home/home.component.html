@@ -1,0 +1,88 @@
+<div class="headings">
+  <br>
+  <a href="https://abi.am/">
+    <img src="../../assets/ABI_logo_final-01.png" height="50px" width="165px" class="abi-logo"/>
+  </a>
+
+  <br>
+  <h1 class="welcome">Welcome to the Armenian Bioinformatics Institute Application Portal</h1>
+  <div class="description">
+    <p class="description-text">Here you can view all current and archived job and internship listings at the Armenian Bioinformatics Institute (ABI), get familiar with the prerequisites and responsibilities, and apply to your programs of choice by filling out the integrated application form.</p>
+  </div>
+</div>
+<br>
+<br>
+<h2>Open Positions</h2>
+<mat-divider></mat-divider>
+<div class="cards-container" id="row-1">
+  <ng-container class="ind-card-container"  *ngFor="let listing of openPositions | reversePipe; index as i">
+    <mat-card class="listing-card" *ngIf="listing.w_Visible">
+      <img mat-card-image src="{{listing.w_Image}}" width="282px" height="188px">
+      <div class="card-header">
+        <mat-card-header>
+          <mat-card-title>{{listing.jobTitle}}</mat-card-title>
+          <mat-card-subtitle>{{listing.listingTitle}}</mat-card-subtitle>
+        </mat-card-header>
+      </div>
+      <mat-card-content class="card-content">
+        <div class="additional-info">
+          <p><b>Application Status: </b>{{openPositions[i].wStatus.toUpperCase()}}</p>
+          <p><b>Application Deadline: </b>{{openPositions[i].appDeadline}}</p>
+        </div>
+        <div class="action-buttons">
+          <button mat-raised-button class="learn-more-button" (click)="openDialog(i)">LEARN MORE</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+</div>
+<br>
+<h2>Unpaid Internships</h2>
+<mat-divider></mat-divider>
+<div class="cards-container">
+  <ng-container class="ind-card-container"  *ngFor="let listing of openInternships | reversePipe; index as i">
+    <mat-card class="listing-card" *ngIf="listing.w_Visible && listing.jobTitle!='OMICS Summer School 2022'">
+      <img mat-card-image src="{{listing.w_Image}}" width="282px" height="188px">
+      <div class="card-header">
+        <mat-card-header>
+          <mat-card-title>{{listing.jobTitle}}</mat-card-title>
+          <mat-card-subtitle>{{listing.listingTitle}}</mat-card-subtitle>
+        </mat-card-header>
+      </div>
+      <mat-card-content class="card-content">
+        <div class="additional-info">
+          <p><b>Application Status: </b>{{openInternships[i].wStatus.toUpperCase()}}</p>
+          <p><b>Application Deadline: </b>{{openInternships[i].appDeadline}}</p>
+        </div>
+        <div class="action-buttons">
+          <button mat-raised-button class="learn-more-button" (click)="openDialog(i)">LEARN MORE</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+</div>
+<br>
+<h2>OMICS 2022 Summer School</h2>
+<mat-divider></mat-divider>
+<div class="cards-container">
+  <ng-container class="ind-card-container"  *ngFor="let listing of openInternships | reversePipe; index as i">
+    <mat-card class="listing-card" *ngIf="listing.w_Visible && listing.jobTitle=='OMICS Summer School 2022'">
+      <img mat-card-image src="{{listing.w_Image}}" width="282px" height="188px">
+      <div class="card-header">
+        <mat-card-header>
+          <mat-card-title>{{listing.jobTitle}}</mat-card-title>
+          <mat-card-subtitle>{{listing.listingTitle}}</mat-card-subtitle>
+        </mat-card-header>
+      </div>
+      <mat-card-content class="card-content">
+        <div class="additional-info">
+          <p><b>Application Status: </b>{{openInternships[i].wStatus.toUpperCase()}}</p>
+          <p><b>Application Deadline: </b>{{openInternships[i].appDeadline}}</p>
+        </div>
+        <div class="action-buttons">
+          <button mat-raised-button class="learn-more-button" (click)="openDialog(i)" >LEARN MORE</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+</div>

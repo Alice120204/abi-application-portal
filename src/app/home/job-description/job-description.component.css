@@ -1,0 +1,63 @@
+.apply-box{
+  display: block;
+}
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.file-input{
+  display: none;
+}
+.upload-stuff {
+  display: flex;
+}
+.mat-radio-group {
+  margin-top: 10px;
+}
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+
+.mat-form-field {
+  width: 85%;
+}
+.submit-cv-button{
+  background-color: #77CBDA;
+  color: white;
+}
+
+.wrapper{
+  margin: auto;
+  text-align: justify;
+  height: 100%;
+  width: 60%;
+  padding: 3%;
+  padding-top: 1%;
+  align-items: center;
+  justify-content: center;
+}
+.applyButton{
+  position: absolute;
+  background-color: #77CBDA;
+  color: white;
+  left: 50%;
+  margin: auto;
+}
+@media screen and (max-width: 768px){
+  .wrapper{
+    margin: auto;
+    text-align: justify;
+    width: 60%;
+    padding: 3%;
+    padding-top: 1%;
+  }
+}
+.extra {
+  margin-left: 20px;
+  color: #000;
+}
+a{
+  color: #77CBDA;
+  font-weight: bold;
+}

@@ -8,13 +8,13 @@ export const environment = {
   production: false
 };
 const firebaseConfig = {
-  apiKey: "AIzaSyAOah7B4eof8iM216rMw2mLhuZiqtOMNA0",
-  authDomain: "abi-application-portal-6652c.firebaseapp.com",
-  projectId: "abi-application-portal-6652c",
-  storageBucket: "abi-application-portal-6652c.appspot.com",
-  messagingSenderId: "601196775951",
-  appId: "1:601196775951:web:3f84b78549e5c5a216717a",
-  measurementId: "G-C38FV6D1H8"
+  apiKey: "AIzaSyAP4MUlPcQYHhozNcBFcx87QI5MdU2QD90",
+  authDomain: "abi-application-portal-d678a.firebaseapp.com",
+  projectId: "abi-application-portal-d678a",
+  storageBucket: "abi-application-portal-d678a.appspot.com",
+  messagingSenderId: "1024902460995",
+  appId: "1:1024902460995:web:0f1665007750c59eef86f6",
+  measurementId: "G-0N8N3MLD6Z"
 };
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);

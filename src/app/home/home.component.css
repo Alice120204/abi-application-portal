@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  color: #464646;
+}
+.welcome{
+  /*margin-top: 5%;*/
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  color: #17145b;
+}
+.listing-card {
+  width: 250px;
+  height: 450px;
+  border-radius: 20px;
+  border: 1px solid #ffffff;
+  margin-right: 30px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  justify-content: center;
+}
+.cards-container{
+  display: flex;
+  max-width: 90%;
+  justify-content: center;
+  flex-basis: 100%;
+  flex-wrap: wrap;
+  margin-left: 4%;
+}
+.ind-card-container{
+  margin: 1.5%;
+}
+.card-header{
+  height: 25%;
+}
+.action-buttons{
+  width: 100%;
+  text-align: center;
+}
+.learn-more-button{
+  background-color: #77CBDA;
+  color: white;
+}
+.no-margin{
+  margin: 0%;
+}
+.description-text{
+  color: gray;
+  text-align: center;
+}
+.description{
+  height: 30px;
+  width: 60%;
+  margin: auto;
+
+}
+.abi-logo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.headings{
+  justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .cards-container {
+    display: block;
+    justify-content: center;
+  }
+  #row-1 {
+    margin-top: 30%;
+  }
+  .ind-card-container{
+    margin: 0%;
+    justify-content: center;
+  }
+  .listing-card{
+    margin: auto auto 5%;
+  }
+}
+.additional-info{
+  margin-left: 7%;
+  color: #7c7c7c;
+}
+h2{
+  margin-left: 50px;
+  font-size: 30px;
+}
+mat-divider{
+  margin-left: 50px;
+  margin-right: 50px;
+}

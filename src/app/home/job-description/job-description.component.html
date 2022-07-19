@@ -1,0 +1,129 @@
+<div class="wrapper">
+  <img src="{{jobDataArray[8]}}" alt="" width="100%" height="2%">
+  <br>
+  <br>
+  <div class="heading" style="display: flex;">
+    <h1><b>Details</b></h1>
+    <a href="https://jobs.abi.am">
+      <button mat-stroked-button class="extra" style="background-color: rgba(246,255,164,0.58)">More Opportunities</button>
+    </a>
+    <a href="https://abi.am">
+      <button mat-stroked-button class="extra" style="background-color: rgba(119,203,218,0.56)">ABI Home</button>
+    </a>
+  </div>
+
+<mat-divider></mat-divider>
+<br>
+<div>
+  <h2>{{jobDataArray[4]}}</h2>
+  <p *ngIf="jobDataArray[4]!='Computational analysis of telomere sequences in cell-free DNA' && jobDataArray[4]!='OMICS Summer School 2022'">{{jobDataArray[10]}}</p>
+  <div *ngIf="jobDataArray[4]=='OMICS Summer School 2022'">
+    <p>Contemporary medicine, pharma, and biotech have largely been transformed into data-dependent ventures, where large scale biological data analyses are cornerstones of success. Technologies that have revolutionized bio-related research and industries, such as large-scale sequencing, have also posed the challenge of having enough specialists able to transform data into knowledge (bioinformaticians). Training specialists in the field of bioinformatics and genomics is thus of tremendous importance to life science research.
+    </p>
+
+    <p>In response to this challenge, the Armenian Bioinformatics Institute (ABI) in collaboration with the Bioinformatics Group at the Institute of Molecular Biology (IMB) NAS RA are organizing a summer school in genome bioinformatics.
+    </p>
+    <p>If you are a biologist or data/computer scientist eager to start your journey in bioinformatics and genomics, then consider applying! This summer school offers you a possibility to gain basic knowledge and skills you’d need to start your first bioinformatics project. During the school you will have an opportunity to ask questions to your mentors, meet peers and discuss your progress. You will also have the unique opportunity to meet scientists from Armenia and abroad who will join us with guest lectures, talks and seminars. You will learn about the role of bioinformatics in life sciences and in the industry.
+    </p>
+    <h3><b>Bioinformatics Bootcamp</b></h3>
+    <p>The students who successfully pass all exams will participate in a week-long bioinformatics bootcamp outside of Yerevan. While endorsing the breathtaking Armenian nature, students will work on various bioinformatics projects, as well as participate in seminars conducted by experienced researchers from Armenia and abroad.
+    </p>
+  </div>
+  <br>
+  <h3><b>Description</b></h3>
+  <ul>
+    <li *ngIf="jobDataArray[4]!='OMICS Summer School 2022'"><b>Employer: </b>{{jobDataArray[2]}}</li>
+    <li *ngIf="jobDataArray[4]=='OMICS Summer School 2022'"><b>Organizer: </b>{{jobDataArray[2]}}</li>
+    <li><b>Duration: </b>{{jobDataArray[1]}}</li>
+    <li><b>Format: </b>{{jobDataArray[3]}}</li>
+    <li *ngIf="jobDataArray[4]!='OMICS Summer School 2022'"><b>Working Hours: </b>{{jobDataArray[7]}}</li>
+    <li *ngIf="jobDataArray[4]=='OMICS Summer School 2022'"><b>Study Hours: </b>{{jobDataArray[7]}}</li>
+    <li *ngIf="jobDataArray[13] != 'N/A'"><b>Remuneration: </b>{{jobDataArray[13]}}</li>
+    <li><b>Application Deadline: </b>{{jobDataArray[0]}}</li>
+  </ul>
+  <br>
+  <div class="learn-more" *ngIf="jobDataArray[4]=='OMICS Summer School 2022'">
+
+    <button mat-stroked-button style="background-color: rgba(88,36,93,0.52); position: relative; left: 48.7%;">
+      <a href="https://abi.am/education/omics-school-2022/" style="text-decoration: none; color: white;">
+        Learn More
+      </a>
+    </button>
+  </div>
+  <div class="m-m" *ngIf="jobDataArray[4]=='Computational analysis of telomere sequences in cell-free DNA'">
+    <p>The cells of our body have a limited ability to divide and regenerate old tissues. There are many factors that limit cellular divisions. One of those is telomeres - the ends of our DNA/chromosomes consisting of repetitive sequences. Telomeres are getting shorter every time the cell divides. When they get short enough, the cell does not divide anymore. Most cancer cells, however, have found ways to recover telomeric ends after successive rounds of divisions. Due to this, tumors can grow indefinitely. Naturally, telomeres are the target of many anti-cancer drugs that are now in clinical trials and development. </p>
+    <p>Biologists are studying cancers using tumors obtained from tissue biopsies of patients. In addition, they have recently found non-invasive methods to analyze and diagnose cancers - by simply studying cell-free DNA in the blood. The latter is appearing there from various cells, including cancer cells, that get degraded and release pieces of their DNA into the bloodstream. Analysis of several biomarkers in this cell-free DNA has enabled the non-invasive early diagnosis of various cancers. This approach is also known as the analysis of liquid biopsies. </p>
+    <p>In this project, we will combine both research directions and expand beyond cancer biomarker discovery in cell-free DNA. We will identify telomeric sequences and their mutations in cell-free DNA in the blood and assess the diagnostic potential of such analysis.
+    </p>
+    <p>We will use publicly available datasets and the software tools that we have previously developed, as well as think of new algorithms depending on how the project goes. The project may last for two semesters with a half-time workload.
+    </p>
+    <p><b>Mentor:</b> Jakub Wudarski, PhD, Specially Appointed Assistant Professor at National Institute for Basic Biology Japan</p>
+    <p><b>Bioinformatics supervisor:</b> Lilit Nersisyan, PhD, Director at ABI, researcher at Karolinska Institutet, Sweden</p>
+    <p>A quick introduction to telomeres <a href="https://github.com/lilit-nersisyan/bioinf_challenges/blob/master/cell_free_telomeres/README.md">here</a></p>
+  </div>
+  <div class="tasks-box" *ngIf="tasks.length!=0">
+    <h3><b>Tasks</b></h3>
+    <ul *ngFor="let task of tasks">
+      <li>{{task}}</li>
+    </ul>
+    <br>
+  </div>
+  <div class="qualifications" *ngIf="jobDataArray[4]!='OMICS Summer School 2022'">
+    <h3 ><b>Qualifications</b></h3>
+    <ul  *ngFor = "let skill of qualifications">
+      <li>{{skill}}</li>
+    </ul>
+    <br>
+  </div>
+<div class="what-we-offer" *ngIf="jobDataArray[4]!='Communications & marketing manager' && jobDataArray[3]!='unpaid internship' && jobDataArray[4]!='OMICS Summer School 2022' && jobDataArray[4]!='Administrative Assistant'">
+  <h3><b>What we Offer</b></h3>
+  <ul *ngFor="let offering of offerings">
+    <li>{{offering}}</li>
+  </ul>
+</div>
+  <div class="not-marketing" *ngIf="jobDataArray[4]=='Communications & marketing manager'">
+    <h3><b>What we Offer</b></h3>
+    <ul>
+      <li>Environment for professional growth: the candidate will be advised by an experienced marketing manager</li>
+      <li>Excellent networking opportunities: the candidate will be in touch with a diverse and international community of donors, scientists, engineers, and students</li>
+      <li>Fun and open working atmosphere</li>
+      <li>Workplace and time flexibility</li>
+    </ul>
+  </div>
+
+  <div class="adm-assist" *ngIf="jobDataArray[4]=='Administrative Assistant'">
+    <h3><b>What we Offer</b></h3>
+    <ul>
+      <li>Excellent opportunity to learn how organizations are getting established, excel in soft skills that will be of great value for your professional growth</li>
+      <li>Fun and healthy working environment</li>
+      <li>Networking opportunities</li>
+      <li>Potential to grow professionally into other positions, e.g. education and development officer, vice director, etc.</li>
+    </ul>
+  </div>
+  <br>
+  <div class="interview-prep" *ngIf="jobDataArray[4]=='Communications & marketing manager'">
+    <h3><b>When Preparing for the Interview</b></h3>
+    <ul>
+      <li>Review our public profiles (website, FB, LinkedIn) and the 2021 Annual Report</li>
+      <li>Think of possible ways you can improve our public communication</li>
+    </ul>
+    <br>
+  </div>
+  <h3><b>About ABI</b></h3>
+  <p>The Armenian Bioinformatics Institute (ABI) is a recently established scientific-educational foundation aimed at promoting data-driven studies in biomedicine and biotechnologies with international impact. ABI is envisioned as an interdisciplinary and cross-sectoral R&D center aimed at building bioinformatics expertise and infrastructure. ABI focuses on three challenge areas: genomics for health, biotechnology, and ecosystem management. </p>
+  <br>
+  <div class="about-agenus" *ngIf="jobDataArray[5]=='Systems Biology of Tumor Metastases'">
+    <h3><b>About Agenus</b></h3>
+    <p>Agenus is a clinical-stage immuno-oncology company focused on the discovery and development of therapies that engage the body's immune system to fight cancer. The Company's vision is to expand the patient populations benefiting from cancer immunotherapy by pursuing combination approaches that leverage a broad repertoire of antibody therapeutics, adoptive cell therapies (through its subsidiary MiNK Therapeutics), adjuvants, and proprietary cancer vaccine platforms. The Company is equipped with a suite of antibody discovery platforms and a state-of-the-art GMP manufacturing facility with the capacity to support clinical programs. Agenus is headquartered in Lexington, MA.</p>
+  </div>
+
+  <br>
+
+  <button mat-raised-button class="applyButton" (click)="openForm()" [disabled]="jobDataArray[11]=='closed' || jobDataArray[11]=='not yet open'">APPLY</button>
+
+
+</div>
+
+
+
+</div>

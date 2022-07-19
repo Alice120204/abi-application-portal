@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "abi-application-portal-6652c"
-  }
+    "default": "abi-application-portal-d678a",
+    "abi-application-portal": "abi-application-portal-d678a"
+  },
+  "targets": {}
 }
